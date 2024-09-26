@@ -3,6 +3,7 @@
 namespace Tests\Unit\Model;
 
 use App\Models\User;
+use Database\Seeders\PermissionSeeder;
 use Database\Seeders\UserSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
@@ -17,6 +18,7 @@ class UserModelTest extends TestCase
     public $seeder ;
     public function setUp(): void{
         parent::setUp();
+        $this->seed(PermissionSeeder::class);
         $this->model = new User();
         $this->seeder = UserSeeder::class ;
         $this->tablename  = $this->model->getTable();

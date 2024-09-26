@@ -6,6 +6,7 @@ use App\Models\Client;
 use App\Models\Project;
 use App\Models\Task;
 use App\Models\User;
+use Database\Seeders\PermissionSeeder;
 use Database\Seeders\ProjectSeeder;
 use Database\Seeders\TaskSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -20,6 +21,7 @@ class TaskModelTest extends TestCase
     public $seeder ;
     public function setUp(): void{
         parent::setUp();
+        $this->seed(PermissionSeeder::class);
         $this->model = new Task();
         $this->seeder = TaskSeeder::class ;
         $this->tablename  = $this->model->getTable();

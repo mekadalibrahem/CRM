@@ -5,6 +5,7 @@ namespace Tests\Unit\Model;
 use App\Models\Client;
 use App\Models\Project;
 use App\Models\User;
+use Database\Seeders\PermissionSeeder;
 use Database\Seeders\ProjectSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
@@ -18,6 +19,7 @@ class ProjectModelTest extends TestCase
     public $seeder ;
     public function setUp(): void{
         parent::setUp();
+        $this->seed(PermissionSeeder::class);
         $this->model = new Project();
         $this->seeder = ProjectSeeder::class ;
         $this->tablename  = $this->model->getTable();
