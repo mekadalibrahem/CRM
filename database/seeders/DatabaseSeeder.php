@@ -2,6 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\Client;
+use App\Models\Project;
+use App\Models\Task;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -21,5 +24,8 @@ class DatabaseSeeder extends Seeder
         ]);
 
         User::factory()->count(49)->create()->make();
+        Client::factory()->count(50)->create()->make();
+        Project::factory()->count(50)->create()->make();
+        Task::factory()->count(100)->create()->make();
     }
 }
