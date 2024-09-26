@@ -18,14 +18,17 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        User::factory()->create([
-            'name' => 'Admin',
-            'email' => 'admin@crm.com',
+        
+        $this->call([
+            UserSeeder::class,
+            ClientSeeder::class ,
+            ProjectSeeder::class ,
+            TaskSeeder::class,
+            
         ]);
-
-        User::factory()->count(49)->create()->make();
-        Client::factory()->count(50)->create()->make();
-        Project::factory()->count(50)->create()->make();
-        Task::factory()->count(100)->create()->make();
+        
+       
+        
+        
     }
 }
