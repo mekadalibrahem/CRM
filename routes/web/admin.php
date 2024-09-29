@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Middleware\AuthAdminMiddleware;
 use Illuminate\Support\Facades\Route;
 
 Route::group([
     'prefix' => 'admin',
-    'as'=> 'admin.'
+    'as'=> 'admin.',
+    'middleware' => [AuthAdminMiddleware::class]
 ], function(){
 
     Route::get('/dashboard' , function(){
